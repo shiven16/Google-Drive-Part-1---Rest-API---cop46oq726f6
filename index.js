@@ -15,8 +15,7 @@ app.get(`/file`, (req, res) => {
 })
 
 app.get(`/file/:fileName`, (req, res) => {
-  let {fileName} = req.params;
-  fileName = fileName.slice(1);
+  const {fileName} = req.params;
   const data = getAFile(fileName);
   res.status(200).send({fileContent: data, message:"File does not exist"})
 })
@@ -28,16 +27,14 @@ app.post("/file/create", (req, res) => {
 })
 
 app.put(`/file/:fileName`, (req, res) => {
-  let {fileName} = req.params;
-  fileName = fileName.slice(1);
+  const {fileName} = req.params;
   const {updatedFileName, fileData} = req.body;
   updateAfile(fileName, updatedFileName, fileData)
   res.status(200).send({message: "File updated successfully"});
 })
 
 app.delete(`/file/:fileName`, (req, res) => {
-  let {fileName} = req.params;
-  fileName = fileName.slice(1);
+  const {fileName} = req.params;
   console.log(fileName)
   deleteAFile(fileName);
   res.status(200).send({message: "File deleted successfully"});
