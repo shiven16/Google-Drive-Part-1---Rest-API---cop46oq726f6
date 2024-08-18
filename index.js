@@ -28,7 +28,7 @@ app.post("/file/create", (req, res) => {
 
 app.put(`/file/:fileName`, (req, res) => {
   const {fileName} = req.params;
-  const {updatedFileName, fileData} = req.body;
+  const {updatedFileName, newFileData} = req.body;
   updateAfile(fileName, updatedFileName, newFileData)
   res.status(200).send({message: "File updated successfully"});
 })
