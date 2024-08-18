@@ -36,7 +36,7 @@ app.put(`/file/:fileName`, (req, res) => {
 app.delete(`/file/:fileName`, (req, res) => {
   const {fileName} = req.params;
   deleteAFile(fileName);
-  res.status(200).send({message: "File deleted successfully"});
+  res.status(200).send({message: "File Deleted Successfully"});
 })
 
 app.listen(port, () => {
